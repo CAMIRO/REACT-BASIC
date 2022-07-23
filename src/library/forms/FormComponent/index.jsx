@@ -5,17 +5,18 @@ import ContactList from './ContactList';
 
 const MyForm = () => {
     // hooks
-    const [contactInfo, setContactInfo] = useState({
-        name: "",
-        last: "",
-        phone: "",
-      });
+    const [contacts, setContacts] = useState([]);
+
+    const addContact = (contact) => {
+        setContacts([...contacts, contact]);
+
+    }
     
 
     return (
         <div>
-            <BasicForm contactInfo={contactInfo} setContactInfo={setContactInfo} />
-            <ContactList contacts={contactInfo}/>
+            <BasicForm addContact={addContact} />
+            <ContactList contacts={contacts}/>
         </div>
     )
 }

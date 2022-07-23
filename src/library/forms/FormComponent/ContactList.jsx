@@ -1,17 +1,20 @@
 const ContactList = ({ contacts }) => {
 
-    const { name, last, phone } = contacts
-    console.log("🚀 ~ file: ContactList.jsx ~ line 4 ~ ContactList ~ contacts", contacts)
 
     return (
         <table className='informationTable'>
-        <thead>
-            <tr>
-                <th>{name}</th>
-                <th>{last}</th>
-                <th>{phone}</th>
-            </tr>
-        </thead>
+        {contacts.map(contact => {
+            const { name, last, phone } = contact
+            return (
+                <thead>
+                    <tr>
+                        <th>{name}</th>
+                        <th>{last}</th>
+                        <th>{phone}</th>
+                    </tr>
+                 </thead>
+            )
+        })}
     </table>
     )
 }
